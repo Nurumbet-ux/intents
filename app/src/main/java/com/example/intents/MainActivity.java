@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setType("text/html");
         intent.putExtra(Intent.EXTRA_EMAIL, "sayevnur@gmail.com");
         intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-        intent.putExtra(Intent.EXTRA_TEXT, "ya zdes body haha");
+        intent.putExtra(Intent.EXTRA_TEXT,value );
         if (intent.resolveActivity(getPackageManager())!=null){
             startActivity(Intent.createChooser(intent, "Send Email"));
         }
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     Bundle bundle = data.getExtras();
                     Bitmap bitmap = (Bitmap) bundle.get(secondActivity.KEYS);
                     imgview.setImageBitmap(bitmap);
+                    value = (String) bundle.get("text");
                 }
             }
         }

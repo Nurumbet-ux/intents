@@ -1,7 +1,5 @@
 package com.example.intents;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -30,6 +28,15 @@ public class secondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         init();
+        imgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_IMAGE);
+            }
+        });
     }
 
     private void init() {
@@ -42,22 +49,12 @@ public class secondActivity extends AppCompatActivity {
     public void setClick(View view) {
         Intent intent = getIntent();
         intent.putExtra("text", EtText2.getText().toString());
-        imgView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_IMAGE);
-            }
-        });
         try {
            intent.putExtra(KEYS,bitmap);
         }catch (Exception e){
         }
         setResult(RESULT_OK, intent);
         finish();
-
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -70,6 +67,7 @@ public class secondActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    imgView.setImageBitmap(bitmap);
                 }
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
