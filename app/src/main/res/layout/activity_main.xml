@@ -16,6 +16,7 @@
         app:layout_constraintBottom_toTopOf="@+id/zeon"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="60dp"
+        android:background="@drawable/backgroundfor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
