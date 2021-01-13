@@ -4,67 +4,49 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import java.io.IOException;
-import java.security.Key;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView imgview;
-       private Button button1;
-       private Button button2;
-       public static final int KEY =1;
-       private  static String value;
+    private ImageView imgViewOfFirst;
+    public static final int KEY = 1;
+    private static String value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
+        imgViewOfFirst = findViewById(R.id.IMG1);
     }
 
-    private void init() {
-        button1 = findViewById(R.id.btnofFirst);
-        imgview = findViewById(R.id.IMG1);
-        button2 = findViewById(R.id.btnofFirst2);
+    public void setClickOfFirst(View view) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivityForResult(intent, KEY);
     }
 
-    public void setClickoffirst(View view) {
-        Intent intent = new Intent(this,secondActivity.class);
-        startActivityForResult(intent,KEY);
-    }
-
-    public void setClickoffirst2(View view) {
+    public void setClickOfFirst2(View view) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/html");
         intent.putExtra(Intent.EXTRA_EMAIL, "sayevnur@gmail.com");
         intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-        intent.putExtra(Intent.EXTRA_TEXT,value );
-        if (intent.resolveActivity(getPackageManager())!=null){
+        intent.putExtra(Intent.EXTRA_TEXT, value);
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(Intent.createChooser(intent, "Send Email"));
         }
 
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == KEY) {
-            if (resultCode == Activity.RESULT_OK) {
-                if (data != null) {
-                    Bundle bundle = data.getExtras();
-                    Uri imageuri= (Uri) bundle.get(secondActivity.KEYS);
-                    imgview.setImageURI(imageuri);
-                    value = (String) bundle.get("text");
-                }
-            }
+        if (requestCode == KEY && resultCode == Activity.RESULT_OK && data != null) {
+            imgViewOfFirst.setImageURI(data.getParcelableExtra(SecondActivity.KEYS));
+            value = data.getStringExtra("text");
         }
 
-}
+    }
 
 
 }

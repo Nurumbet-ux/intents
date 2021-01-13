@@ -4,60 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondActivity"
-    android:background="@drawable/backgroundfor">
+    android:background="@drawable/backgroundfor"
+    tools:context=".SecondActivity">
 
     <Button
         android:id="@+id/buttonOfSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/findimg"
+        android:layout_marginBottom="100dp"
         android:onClick="setClick"
+        android:text="@string/findimg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="100dp"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/Edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/IMG"
-        app:layout_constraintBottom_toTopOf="@+id/buttonOfSecond"
-        android:layout_marginEnd="60dp"
         android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonOfSecond"
         app:layout_constraintEnd_toEndOf="@+id/buttonOfSecond"
         app:layout_constraintEnd_toStartOf="@+id/buttonOfSecond"
         app:layout_constraintStart_toStartOf="@+id/buttonOfSecond"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/IMG" />
 
-        <ImageView
-            android:id="@+id/IMG"
-            android:layout_width="300dp"
-            android:layout_height="400dp"
-            app:layout_constraintBottom_toTopOf="@+id/Edt"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/backgroundfor"
-            />
+    <ImageView
+        android:id="@+id/IMG"
+        android:layout_width="225dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/backgroundfor"
+        android:onClick="setClick2"
+        app:layout_constraintBottom_toTopOf="@+id/Edt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/EtText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="setClick1"
-        android:text="@string/select_photo"
-        android:textSize="30sp"
+        android:layout_marginBottom="500dp"
+        android:text="@string/select_image"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,23 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@drawable/backgroundfor"
-    >
+    tools:context=".MainActivity">
 
 
     <ImageView
         android:id="@+id/IMG1"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        app:layout_constraintBottom_toTopOf="@+id/zeon"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="225dp"
+        android:layout_height="350dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/backgroundfor"
+        app:layout_constraintBottom_toTopOf="@+id/zeon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -40,29 +37,26 @@
 
 
     <Button
-        android:id="@+id/btnofFirst"
+        android:id="@+id/btnOfFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="setClickoffirst"
+        android:layout_marginTop="50dp"
+        android:onClick="setClickOfFirst"
         android:text="@string/second_activity"
-        app:layout_constraintTop_toBottomOf="@+id/zeon"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnofFirst2"
+        app:layout_constraintEnd_toStartOf="@+id/btnOfFirst2"
         app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <Button
-        android:id="@+id/btnofFirst2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:onClick="setClickoffirst2"
-        android:text="@string/send_message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnofFirst"
         app:layout_constraintTop_toBottomOf="@+id/zeon" />
 
-
+    <Button
+        android:id="@+id/btnOfFirst2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:onClick="setClickOfFirst2"
+        android:text="@string/send_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnOfFirst"
+        app:layout_constraintTop_toBottomOf="@+id/zeon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
