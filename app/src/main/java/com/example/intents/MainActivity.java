@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
        private Button button2;
        public static final int KEY =1;
        private  static String value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     Bundle bundle = data.getExtras();
-                    Bitmap bitmap = (Bitmap) bundle.get(secondActivity.KEYS);
+                    Bitmap bitmap= (Bitmap) bundle.get(secondActivity.KEYS);
                     imgview.setImageBitmap(bitmap);
                     value = (String) bundle.get("text");
                 }
@@ -65,4 +66,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 }
+
+
 }
