@@ -75,14 +75,5 @@ public class secondActivity extends AppCompatActivity {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
             }
         }
-        //либо так
-        if (requestCode == SELECT_IMAGE && resultCode == RESULT_OK && data != null) {
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
-                imgView.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
