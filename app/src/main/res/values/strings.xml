@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">intents</string>
+    <string name="zeon">ZEON</string>
+    <string name="send_message">send message</string>
+    <string name="second_activity">second activity</string>
+    <string name="findimg">findIMG</string>
+</resources>
