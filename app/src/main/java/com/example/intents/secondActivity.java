@@ -28,6 +28,7 @@ public class secondActivity extends AppCompatActivity {
     private TextView textVie;
     private Button btn;
     public Bitmap bitmap;
+    private Uri imageuri;
     public static final String KEYS = "keys";
 
 
@@ -49,7 +50,7 @@ public class secondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         intent.putExtra("text", EtText2.getText().toString());
         try {
-           intent.putExtra(KEYS,bitmap);
+           intent.putExtra(KEYS,imageuri);
         }catch (Exception e){
         }
         setResult(RESULT_OK, intent);
@@ -61,6 +62,7 @@ public class secondActivity extends AppCompatActivity {
         if (requestCode == SELECT_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
+                    imageuri = data.getData();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
                     } catch (IOException e) {
