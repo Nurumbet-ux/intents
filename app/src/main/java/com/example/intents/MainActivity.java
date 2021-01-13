@@ -58,12 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 if (data != null) {
                     Bundle bundle = data.getExtras();
                     Uri imageuri= (Uri) bundle.get(secondActivity.KEYS);
-                    try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageuri);
-                        imgview.setImageBitmap(bitmap);
-                    }catch (Exception e){
-                    }
-
+                    imgview.setImageURI(imageuri);
                     value = (String) bundle.get("text");
                 }
             }

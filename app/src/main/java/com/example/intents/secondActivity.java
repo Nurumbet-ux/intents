@@ -63,13 +63,7 @@ public class secondActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     imageuri = data.getData();
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    imgView.setImageBitmap(bitmap);
+                    imgView.setImageURI(imageuri);
                     textVie.setText("");
                 }
             } else if (resultCode == Activity.RESULT_CANCELED) {
